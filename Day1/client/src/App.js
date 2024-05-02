@@ -7,6 +7,7 @@ import UseEffect from './Components/Day3/Effect1';
 import Effect2 from './Components/Day3/Effect2';
 import Effect3 from './Components/Day3/Effect3';
 import Effect4 from './Components/Day3/Effect4';
+import Register from './Components/Register';
 // import Wellcome from './Components/Day 2/wellcome';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/Effect2' element={<Effect2/>}/>
         <Route path='/effect3'element={<Effect3/>}/>
         <Route path='/effect4'element={<Effect4/>}/>
+        <Route path='/register' element={<Register/>}/>
 
       </Routes>
     </div>
