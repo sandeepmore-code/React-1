@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import {  useNavigate } from "react-router-dom";
 
 
@@ -21,7 +22,7 @@ setUserData({...userData,[event.target.name] : event.target.value})
       const Response = {data:{sucess :true,Message : "Registration Sucessfull"}}
      if(Response.data.sucess){
       setUserData({name: "",email :"",password : "",confirmpassword :""});
-      alert(Response.data.Message);
+      toast.success(Response.data.Message);
       saNdu('/login')
       
      }
@@ -55,3 +56,7 @@ setUserData({...userData,[event.target.name] : event.target.value})
   )
 }
 export default Register;
+
+
+
+
