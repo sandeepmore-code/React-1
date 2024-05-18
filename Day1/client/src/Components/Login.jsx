@@ -1,23 +1,24 @@
 // import { useState } from "react";
 // import toast from "react-hot-toast";
-// import {  useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 // function Login (){
 //   const router = useNavigate();
-//   const [user,setUserData]= useState({email :"",password :""});
-//   console.log(user,"userData");
+//   const [userData,setUserData]= useState({email :"",password :""});
+//   console.log(userData,"userData");
+
 //   function handleChange(event){
-//     setUserData({,[event.target.name]:event.target.value})
+//     setUserData({...userData,[event.target.name]:event.target.value})
 //   }
 
 //   async function handlesubmit(event){
 //     event.preventDefault();
-//     if(user.email && user.password){
-//       try{
-//         const response = {data:{success : true , message : "Login Successful"}}
-//         if(response.data.success){
+//     if(userData.email && userData.password){
+//       try {
+//         const resPonse = {data : {success : true , message : "Login Successful."}
+//         if(resPonse.data.success){
 //           setUserData({email : "",password : ""})
-//           toast.success(response.data.message)
+//           toast.success(resPonse.data.message)
 //           router('/')
 //         }
 //       }catch(error){
@@ -32,7 +33,7 @@
   
 //   <div>
 //     <h1><b><u>Login</u></b></h1>
-//     <form onChange={handlesubmit}>
+//     <form onSubmit={handlesubmit}>
 //       <label>Email</label><br/>
 //       <input type="email" name="email" onChange={handleChange} required/><br/>
 //       <label>Password</label><br/>
@@ -41,17 +42,19 @@
 //     </form>
 //   </div>
 // )
-// }
+//   }
 // export default Login;
 
 
 
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./10-03/context/AuthContext";
 
 function Login() {
+  const {LOGIN} = useContext(AuthContext)
   const router = useNavigate();
   const [userData, setUserData] = useState({ email: "", password: "" });
 
@@ -67,11 +70,13 @@ function Login() {
     event.preventDefault();
     if (userData.email && userData.password) {
       try {
-        const response = { data: { success: true, message: "Login Successful" } };
+        const response = { data: { success: true, message: "Login Successful" , userData:{name : 'awdiz', email : " awdiz@gmail.com"}, token : "abcde" } };
         if (response.data.success) {
+          localStorage.setItem("token",JSON.stringify(response.data.token))
+          LOGIN(response.data.userData)
           setUserData({ email: "", password: "" });
           toast.success(response.data.message);
-          router('/');
+          router('/Home');
         }
       } catch (error) {
         toast.error(error.response.data.message);
