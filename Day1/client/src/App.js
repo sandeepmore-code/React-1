@@ -15,6 +15,10 @@ import AllProducts from './Components/10-03/Allproducts';
 import FakeStoreAllProducts from './Components/10-03/FakeStoreAllProducts';
 import CounterContext from './Components/10-03/context/Countercontect';
 import Home from './Components/Home';
+import Todo from './Components/15-03/Todolist';
+import PageNotFound from './Components/global/Pagenotfound';
+import FakeStoreSingleProduct from './Components/16-03/FakeStoreSingleProduct';
+import CurrencyConverter from './Components/17-03/CurrencyConverter';
 // import Wellcome from './Components/Day 2/wellcome';
 
 function App() {
@@ -35,6 +39,8 @@ function App() {
   return (
     <div className="App">
       <Routes>
+
+        <Route path='*' element = {<PageNotFound/>}/>
         <Route path='/login' element={<Login/>}/>
 
         <Route path='/Counter' element={<Counter/>}/>
@@ -48,8 +54,11 @@ function App() {
         <Route path='/props-drilling' element={<PropsDrilling students={student} counter = {counter} />}/>
         <Route path='/All-products' element={<AllProducts Products ={Product} />}/>
         <Route path='/All-productsfakestore' element={<FakeStoreAllProducts />}/>
+        <Route path='/Fake-singleProduct/:id' element={<FakeStoreSingleProduct/>}/>
         <Route path='/countercontext' element={<CounterContext />}/>
         <Route path='/Home' element={<Home/>}/>
+        <Route path='/Todo' element={<Todo/>}/>
+        <Route path='/Converter' element={<CurrencyConverter/>}/>
         
    
 

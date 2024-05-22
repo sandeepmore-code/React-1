@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { MycounterContext } from "./10-03/context/Countercontect";
 import { AuthContext } from "./10-03/context/AuthContext";
+import NavBar from "./global/Navbar";
 
 
 function Home (){
@@ -9,6 +10,7 @@ function Home (){
    console.log(state,"State")
   return(
     <div>
+      <NavBar/>
       <h1> Welcome to Home Page {state?.user?.name}</h1>
       <h1>Counter : { counter}</h1>
       <button onClick={Increment} >+</button>
