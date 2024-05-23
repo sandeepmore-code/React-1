@@ -1,0 +1,3 @@
+npm i redux react-redux (This both are diffrent pacakages ,can be installed together with this code)
+create an folder naming Redux.
+create two folders in Redux 1.action ,2.Reducers 

@@ -19,6 +19,7 @@ import Todo from './Components/15-03/Todolist';
 import PageNotFound from './Components/global/Pagenotfound';
 import FakeStoreSingleProduct from './Components/16-03/FakeStoreSingleProduct';
 import CurrencyConverter from './Components/17-03/CurrencyConverter';
+import CounterRedux from './Components/20-03/CounterRedux';
 // import Wellcome from './Components/Day 2/wellcome';
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
         <Route path='/Effect2' element={<Effect2/>}/>
         <Route path='/effect3'element={<Effect3/>}/>
         <Route path='/effect4'element={<Effect4/>}/>
-        <Route path='/register' element={<Register/>}/>
+        <Route path='/register' element={<Register/>}/> 
         <Route path='/use-reducer' element={<UseReducer/>}/>
         <Route path='/props-drilling' element={<PropsDrilling students={student} counter = {counter} />}/>
         <Route path='/All-products' element={<AllProducts Products ={Product} />}/>
@@ -59,6 +60,7 @@ function App() {
         <Route path='/Home' element={<Home/>}/>
         <Route path='/Todo' element={<Todo/>}/>
         <Route path='/Converter' element={<CurrencyConverter/>}/>
+        <Route path='/Counter-redux' element={<CounterRedux/>}/>
         
    
 
