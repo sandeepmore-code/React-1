@@ -20,6 +20,7 @@ import PageNotFound from './Components/global/Pagenotfound';
 import FakeStoreSingleProduct from './Components/16-03/FakeStoreSingleProduct';
 import CurrencyConverter from './Components/17-03/CurrencyConverter';
 import CounterRedux from './Components/20-03/CounterRedux';
+import UseMemo from './Components/22-03/useMemo';
 // import Wellcome from './Components/Day 2/wellcome';
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
         <Route path='/Todo' element={<Todo/>}/>
         <Route path='/Converter' element={<CurrencyConverter/>}/>
         <Route path='/Counter-redux' element={<CounterRedux/>}/>
+        <Route path='/Usememo' element={<UseMemo/>}/>
         
    
 

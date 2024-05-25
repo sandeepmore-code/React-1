@@ -19,6 +19,7 @@ function Register() {
       try {
         const response =await axios.post('http://localhost:3000/api/v1/auth/register', {userData});
         // const response = {data:{success: true , message : "registration complited"}};
+        
         if (response.data.success) {
           setUserData({ name: "", email: "", password: "", confirmpassword: "" });
           toast.success(response.data.message);
