@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 import { createContext, useEffect, useReducer } from "react";
 // import { json } from "react-router-dom";
 
@@ -29,22 +29,20 @@ const AuthContextComponent=({children})=>{
   function LOGOUT (){
     dispatch({type : "LOGOUT"})
   }
- async function getUserData(token){
+ async function getUserData(){
   try{
-    // const response = await axios.post('/validate-token',{ token : token})
-    const response = { data: { success: true, userData:{name : 'awdiz', email : " awdiz@gmail.com"} } };
+    const response = await axios.get("http://localhost:3001/api/v1/auth/validate-token",{withCredentials : true})
+    // const response = { data: { success: true, userData:{name : 'awdiz', email : " awdiz@gmail.com"} } };
     if(response.data.success){
-      LOGIN(response.data.userData)
+      LOGIN(response.data.user)
     }
   }catch(error){
     console.log(error)
   }
  }
   useEffect(()=>{
-    const token = JSON.parse(localStorage.getItem("token"))
-    if(token){
-      getUserData()
-    }
+    // const token = JSON.parse(localStorage.getItem("token"))
+    getUserData()
   },[])
   return(
     <AuthContext.Provider value={{state,LOGIN,LOGOUT}}>
@@ -53,4 +51,4 @@ const AuthContextComponent=({children})=>{
   )
 }
 
-export default AuthContextComponent
+export default AuthContextComponent;

@@ -8,6 +8,7 @@ import axios from 'axios';
 function Register() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmpassword: "" });
+  console.log(userData,"userData")
 
   function handleChange(event) {
     setUserData({...userData, [event.target.name]: event.target.value });
@@ -17,21 +18,17 @@ function Register() {
     event.preventDefault();
     if (userData.name && userData.email && userData.password && userData.confirmpassword) {
       try {
-        const response =await axios.post('http://localhost:3000/api/v1/auth/register', {userData});
+        const response = await axios.post('http://localhost:3001/api/v1/auth/register',{userData});
         // const response = {data:{success: true , message : "registration complited"}};
         
         if (response.data.success) {
           setUserData({ name: "", email: "", password: "", confirmpassword: "" });
           toast.success(response.data.message);
           navigate('/login');
-        }
+        } 
       } catch (error) {
-        if (error.response && error.response.data) {
-          alert(error.response.data.message);
-        } else {
-          alert("An error occurred. Please try again later.");
-        }
-      }
+        toast.error(error.response.data.message)
+       }
     } else {
       alert("All fields are required");
     }
