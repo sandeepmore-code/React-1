@@ -31,8 +31,8 @@ const AuthContextComponent=({children})=>{
   }
  async function getUserData(){
   try{
-    const response = await axios.get("http://localhost:3001/api/v1/auth/validate-token",{withCredentials : true})
-    // const response = { data: { success: true, userData:{name : 'awdiz', email : " awdiz@gmail.com"} } };
+    // const response = await axios.get("http://localhost:3001/api/v1/auth/validate-token",{withCredentials : true})
+    const response = { data: { success: true, userData:{name : 'awdiz', email : " awdiz@gmail.com"} } };
     if(response.data.success){
       LOGIN(response.data.user)
     }
