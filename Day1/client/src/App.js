@@ -22,9 +22,30 @@ import CurrencyConverter from './Components/17-03/CurrencyConverter';
 import CounterRedux from './Components/20-03/CounterRedux';
 import UseMemo from './Components/22-03/useMemo';
 import Usecallback from './Components/23-03/usecallback';
+import Navbar2 from './Components/Navbar2';
+import Propfilter from './Components/Propfilter';
+
 // import Wellcome from './Components/Day 2/wellcome';
 
 function App() {
+  const [ allProducts, setProducts] = useState([]);
+  // console.log(allProducts,"allProducts")
+
+  const [search, setSearch] = useState("");
+  const [filterProducts, setFilterProducts] = useState([])
+    function handleChange(event){
+      console.log(event.target.value);
+      setSearch(event.target.value)
+  
+      let userWord= event.target.value.toLowerCase();
+  
+      const filteredProducts = allProducts.filter((product)=>{
+       return product.title.toLowerCase().includes(userWord);
+      })
+      setFilterProducts(filteredProducts)
+      console.log(filteredProducts,"filteredProducts")
+    }
+
   const [student,setStudent] =useState(["a","b","c"])
   const [counter, setCounter]= useState(1234)
   const [Product, setProduct] = useState([
@@ -41,6 +62,8 @@ function App() {
     
   return (
     <div className="App">
+      
+       <Navbar2 search={search} handleChange={handleChange}/>
       <Routes>
 
         <Route path='*' element = {<PageNotFound/>}/>
@@ -65,6 +88,7 @@ function App() {
         <Route path='/Counter-redux' element={<CounterRedux/>}/>
         <Route path='/Usememo' element={<UseMemo/>}/>
         <Route path='/Usecallback' element={<Usecallback/>}/>
+        <Route path='/Propfilter' element={<Propfilter setProducts={setProducts} setFilterProducts={setFilterProducts} filterProducts={filterProducts} search={search} handleChange={handleChange}/>}/>
 
         
         
