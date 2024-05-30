@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
- const Propfilter = ({setProducts,setFilterProducts,filterProducts,search,handleChange})=> {
+ const Propfilter = ({setProducts,setFilterProducts,filterProducts})=> {
 
   const router = useNavigate()
 

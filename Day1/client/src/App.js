@@ -24,6 +24,7 @@ import UseMemo from './Components/22-03/useMemo';
 import Usecallback from './Components/23-03/usecallback';
 import Navbar2 from './Components/Navbar2';
 import Propfilter from './Components/Propfilter';
+import AddProduct from './Components/09-05/AddProduct';
 
 // import Wellcome from './Components/Day 2/wellcome';
 
@@ -90,10 +91,9 @@ function App() {
         <Route path='/Usecallback' element={<Usecallback/>}/>
         <Route path='/Propfilter' element={<Propfilter setProducts={setProducts} setFilterProducts={setFilterProducts} filterProducts={filterProducts} search={search} handleChange={handleChange}/>}/>
 
+        <Route path='/add-product' element={<AddProduct/>}/>
         
-        
-   
-
+  
       </Routes>
     </div>
   );
