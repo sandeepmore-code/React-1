@@ -73,7 +73,7 @@ function Login() {
     if (userData.email && userData.password) {
       try {
         // const response = { data: { success: true, message: "Login Successful" , userData:{name : 'awdiz', email : " awdiz@gmail.com"}, token : "abcde" } };
-        const response = await api.post('/login',{userData})
+        const response = await api.post('/api/v1/user/login',{userData})
         if (response.data.success) {
           // localStorage.setItem("token",JSON.stringify(response.data.token))
           LOGIN(response.data.userData)

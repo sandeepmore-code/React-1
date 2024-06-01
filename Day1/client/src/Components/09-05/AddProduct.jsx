@@ -16,7 +16,7 @@ setProductData({...productData,[event.target.name] : event.target.value})
   const handleSubmit = async(event)=>{
     try{
       event.preventDefault();
-    const response = await api.post('/add-product', {productData, userid : "6658591fbe31cba681ef9413"});
+    const response = await api.post('/api/v1/product/add-product', {productData, userid : "6658591fbe31cba681ef9413"});
     if(response.data.success){
       toast.success(response.data.message)
     }
