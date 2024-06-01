@@ -1,16 +1,48 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import api from "../../AxiosConfig";
 
 
 const AllProducts = (props)=>{
-const {Products} = props;
-console.log(Products,"Products")
+const {awdiz} = props;
+console.log(awdiz,"awdiz")
+const [allProducts , setAllproducts] = useState([])
+useEffect(()=>{
+ async function getProducts(){
+    try{
+      const response = await api.get("/get-products");
+      if(response?.data?.success){
+        setAllproducts(response.data.products);
+      }
+    }catch(error){
+console.log(error);
+    }
+  }
+  getProducts();
+},[])
 return(
   <div>
     <h1>All Products</h1>
+    {allProducts.length?   <div style={{display : 'flex', flexWrap : 'wrap' ,justifyContent : 'space-around', marginBottom : '25px'}}>
+   {allProducts.map((product)=>(
+      <div style= { {width : '28%',height : '250px', border : '2px solid black'} }>
+        {/* <img style={{height : '74%', width : '230px'}} src={product.image} alt=""/> */}
+        <h2>Product: {product.name}</h2>
+        <p>Category : {product.category}</p>
+        <p>Price : {product.price}</p>
+        <p>Quantity : {product.quantity}</p>
+        <p>Tags : {product.tags}</p>
+      </div> ))}
+
+
+   </div> : <div>
+    <h1>Loading...</h1>
+   </div> }
+  
    <div style={{display : 'flex', flexWrap : 'wrap' ,justifyContent : 'space-around'}}>
-   {Products.map((product)=>(
+   {awdiz.map((product)=>(
       <div style= { {width : '16%',height : '230px', border : '2px solid black'} }>
-        <img style={{height : '74%', width : '230px'}} src={product.image}/>
+        <img style={{height : '74%', width : '230px'}} src={product.image} alt=""/>
         <h1>{product.name}</h1>
       </div>
 
@@ -21,3 +53,4 @@ return(
 )
 }
 export default AllProducts;
+

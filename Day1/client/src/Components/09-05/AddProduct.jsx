@@ -3,6 +3,7 @@ import { AuthContext } from "../10-03/context/AuthContext";
 import AuthDirection from "../Redirections/AuthDirects";
 import axios from "axios";
 import toast from "react-hot-toast";
+import api from "../../AxiosConfig";
 
 const AddProduct=()=>{
   const [productData, setProductData] = useState({name : "",category:"",price :"",quantity: "",tags: ""})
@@ -15,7 +16,7 @@ setProductData({...productData,[event.target.name] : event.target.value})
   const handleSubmit = async(event)=>{
     try{
       event.preventDefault();
-    const response = await axios.post('http://localhost:3001/add-product', {productData, userid : "6658591fbe31cba681ef9413"});
+    const response = await api.post('/add-product', {productData, userid : "6658591fbe31cba681ef9413"});
     if(response.data.success){
       toast.success(response.data.message)
     }

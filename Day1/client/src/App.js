@@ -79,7 +79,7 @@ function App() {
         <Route path='/register' element={<Register/>}/> 
         <Route path='/use-reducer' element={<UseReducer/>}/>
         <Route path='/props-drilling' element={<PropsDrilling students={student} counter = {counter} />}/>
-        <Route path='/All-products' element={<AllProducts Products ={Product} />}/>
+        <Route path='/All-products' element={<AllProducts awdiz ={Product} />}/>
         <Route path='/All-productsfakestore' element={<FakeStoreAllProducts />}/>
         <Route path='/Fake-singleProduct/:id' element={<FakeStoreSingleProduct/>}/>
         <Route path='/countercontext' element={<CounterContext />}/>

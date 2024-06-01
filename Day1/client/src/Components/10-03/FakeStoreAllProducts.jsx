@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../AxiosConfig";
 
 
 
@@ -16,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 
   async function getProducts(){
     try{
-      const response = await axios.get('https://fakestoreapi.com/products');
+      const response = await api.get('/products');
       // console.log(response,"Fake store API")
       if(response?.data.length){
         setProducts(response.data)

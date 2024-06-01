@@ -53,6 +53,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./10-03/context/AuthContext";
 import axios from "axios";
+import api from "../AxiosConfig";
 
 function Login() {
   const {LOGIN} = useContext(AuthContext)
@@ -72,7 +73,7 @@ function Login() {
     if (userData.email && userData.password) {
       try {
         // const response = { data: { success: true, message: "Login Successful" , userData:{name : 'awdiz', email : " awdiz@gmail.com"}, token : "abcde" } };
-        const response = await axios.post('http://localhost:3001/api/v1/auth/login',{userData},{withCredentials : true})
+        const response = await api.post('/login',{userData})
         if (response.data.success) {
           // localStorage.setItem("token",JSON.stringify(response.data.token))
           LOGIN(response.data.userData)

@@ -4,6 +4,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import api from "../AxiosConfig";
 
 function Register() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Register() {
     event.preventDefault();
     if (userData.name && userData.email && userData.password && userData.confirmpassword) {
       try {
-        const response = await axios.post('http://localhost:3001/api/v1/auth/register',{userData});
+        const response = await api.post('/register',{userData});
         // const response = {data:{success: true , message : "registration complited"}};
         
         if (response.data.success) {
