@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../10-03/context/AuthContext";
+import { AuthContext } from "../10-03/context/AuthContext.js";
 import AuthDirection from "../Redirections/AuthDirects";
 import axios from "axios";
 import toast from "react-hot-toast";
 import api from "../../AxiosConfig";
+import SellerProtected from "../Redirections/SellerProtected";
 
 const AddProduct=()=>{
   const [productData, setProductData] = useState({name : "",category:"",price :"",quantity: "",tags: ""})
@@ -13,10 +14,10 @@ setProductData({...productData,[event.target.name] : event.target.value})
   }
   const {state} = useContext(AuthContext); 
   console.log(state,"state");
-  const handleSubmit = async(event)=>{
+  const handleSubmit = async ( event)=>{
     try{
       event.preventDefault();
-    const response = await api.post('/api/v1/product/add-product', {productData, userid : "6658591fbe31cba681ef9413"});
+    const response = await api.post('/api/v1/product/add-product', {productData, userId: state.user._id,});
     if(response.data.success){
       toast.success(response.data.message)
     }
@@ -26,7 +27,7 @@ setProductData({...productData,[event.target.name] : event.target.value})
   }
   
   return(
-    <div>
+    <SellerProtected>
       <form onSubmit={handleSubmit}>
         <label>Product Name</label>
         <br/>
@@ -48,9 +49,9 @@ setProductData({...productData,[event.target.name] : event.target.value})
         <br/>
         <input required name="tags"onChange={handleChange}/>
         <br/>
-        <input required  type="submit"/>
+        <input  type="submit"/>
       </form>
-    </div>
+    </SellerProtected>
   )
  
   

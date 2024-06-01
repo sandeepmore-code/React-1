@@ -25,6 +25,8 @@ import Usecallback from './Components/23-03/usecallback';
 import Navbar2 from './Components/Navbar2';
 import Propfilter from './Components/Propfilter';
 import AddProduct from './Components/09-05/AddProduct';
+import Buyer from './Components/Project/Buyer';
+import Seller from './Components/Project/Seller';
 
 // import Wellcome from './Components/Day 2/wellcome';
 
@@ -67,8 +69,7 @@ function App() {
        <Navbar2 search={search} handleChange={handleChange}/>
       <Routes>
 
-        <Route path='*' element = {<PageNotFound/>}/>
-        <Route path='/login' element={<Login/>}/>
+    
 
         <Route path='/Counter' element={<Counter/>}/>
         {/* <Route path='/Wellcome' element={<Wellcome/>}/> */}
@@ -76,14 +77,14 @@ function App() {
         <Route path='/Effect2' element={<Effect2/>}/>
         <Route path='/effect3'element={<Effect3/>}/>
         <Route path='/effect4'element={<Effect4/>}/>
-        <Route path='/register' element={<Register/>}/> 
+     
         <Route path='/use-reducer' element={<UseReducer/>}/>
         <Route path='/props-drilling' element={<PropsDrilling students={student} counter = {counter} />}/>
-        <Route path='/All-products' element={<AllProducts awdiz ={Product} />}/>
+        
         <Route path='/All-productsfakestore' element={<FakeStoreAllProducts />}/>
         <Route path='/Fake-singleProduct/:id' element={<FakeStoreSingleProduct/>}/>
         <Route path='/countercontext' element={<CounterContext />}/>
-        <Route path='/Home' element={<Home/>}/>
+       
         <Route path='/Todo' element={<Todo/>}/>
         <Route path='/Converter' element={<CurrencyConverter/>}/>
         <Route path='/Counter-redux' element={<CounterRedux/>}/>
@@ -91,8 +92,16 @@ function App() {
         <Route path='/Usecallback' element={<Usecallback/>}/>
         <Route path='/Propfilter' element={<Propfilter setProducts={setProducts} setFilterProducts={setFilterProducts} filterProducts={filterProducts} search={search} handleChange={handleChange}/>}/>
 
-        <Route path='/add-product' element={<AddProduct/>}/>
+     
         
+        <Route path='*' element = {<PageNotFound/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/Home' element={<Home/>}/>
+        {/* <Route path='/buyer' element={<Buyer/>}/> */}
+        <Route path='/seller' element={<Seller/>}/>
+        <Route path='/register' element={<Register/>}/> 
+        <Route path='/All-products' element={<AllProducts awdiz ={Product} />}/>
+        <Route path='/add-product' element={<AddProduct/>}/>
   
       </Routes>
     </div>

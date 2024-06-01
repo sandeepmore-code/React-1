@@ -1,15 +1,17 @@
 
 
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import api from "../AxiosConfig";
+import { AuthContext } from "./10-03/context/AuthContext";
 
 function Register() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmpassword: "" ,role : "buyer"});
   console.log(userData,"userData")
+  const {state} =useContext(AuthContext)
 
   function HandleSelect(event){
     setUserData({...userData,["role"]: event.target.value});
@@ -41,6 +43,17 @@ function Register() {
     
   };
 
+  useEffect(()=>{
+    console.log(state)
+   if(state && state?.user?.role !== undefined ){
+    if(state?.user?.role === "buyer"){
+      navigate("/Home")
+    }else{
+      navigate("/seller")
+    }
+   } 
+  },[state])
+
 
 
   return (
@@ -62,6 +75,7 @@ function Register() {
         <br/>
         <input type="submit" value="Register"/>
       </form>
+      <button onClick={()=>navigate("/login")}>Login?</button>
     </div>
   );
 }

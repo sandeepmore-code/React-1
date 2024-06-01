@@ -48,15 +48,15 @@
 
 
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "./10-03/context/AuthContext";
+import { AuthContext } from "./10-03/context/AuthContext.js";
 import axios from "axios";
 import api from "../AxiosConfig";
 
 function Login() {
-  const {LOGIN} = useContext(AuthContext)
+  const {LOGIN,state} = useContext(AuthContext)
   const router = useNavigate();
   const [userData, setUserData] = useState({ email: "", password: "" });
 
@@ -89,18 +89,32 @@ function Login() {
     }
   }
 
+  useEffect(()=>{
+    console.log(state)
+   if(state && state?.user?.role !== undefined ){
+    if(state?.user?.role === "buyer"){
+      router("/Home")
+    }else{
+      router("/seller")
+    }
+   } 
+  },[state])
+  
+
   return (
     <div>
       <h1><b><u>Login</u></b></h1>
       <form onSubmit={handleSubmit}>
         <label>Email</label><br/>
-        <input type="email" name="email" value={userData.email} onChange={handleChange} required/><br/>
+        <input style={{border: "1px solid red"}} type="email" name="email" value={userData.email} onChange={handleChange} required/><br/>
         <label>Password</label><br/>
         <input type="password" name="password" value={userData.password} onChange={handleChange} required/><br/><br/>
         <input type="submit" value="Login"/>
       </form>
+      <button onClick={()=>router("/register")}> Register ?</button>
     </div>
   );
+
 }
 
 export default Login;
