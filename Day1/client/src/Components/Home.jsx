@@ -23,9 +23,7 @@
 // export default Home;
 
 import { useContext, useEffect, useState } from "react";
-// import { MyCounterContext } from "./context/CounterContext.js";
-// import { AuthContext } from "./context/AuthContext.js";
-// import Navbar from "./global/Navbar";
+
 
 import "../styles/Home.css";
 import api from "../AxiosConfig";
