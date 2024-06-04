@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import api from "../AxiosConfig";
 import toast from "react-hot-toast";
 import { AuthContext } from "./10-03/context/AuthContext";
+import  "../styles/Cart.css"
 
 
 
