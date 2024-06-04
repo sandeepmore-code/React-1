@@ -14,7 +14,7 @@ const SellerProtected =({children})=>{
     toast.error("You are not allowed to access this page");
     router("/login") 
   }
- },[state])
+ },[state]);
  return children;
 }
 export default SellerProtected;

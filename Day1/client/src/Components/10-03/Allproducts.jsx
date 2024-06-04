@@ -23,9 +23,9 @@ console.log(error);
 return(
   <div>
     <h1>All Products</h1>
-    {allProducts.length?   <div style={{display : 'flex', flexWrap : 'wrap' ,justifyContent : 'space-around', marginBottom : '25px'}}>
+    {allProducts.length?   <div style={{display : 'flex', flexWrap : 'wrap' ,justifyContent : 'space-around', marginBottom : '30px'}}>
    {allProducts.map((product)=>(
-      <div style= { {width : '28%',height : '250px', border : '2px solid black'} }>
+      <div style= { {width : '30%',height : '270px', border : '2px solid black'} }>
         {/* <img style={{height : '74%', width : '230px'}} src={product.image} alt=""/> */}
         <h2>Product: {product.name}</h2>
         <p>Category : {product.category}</p>
@@ -41,7 +41,7 @@ return(
   
    <div style={{display : 'flex', flexWrap : 'wrap' ,justifyContent : 'space-around'}}>
    {awdiz.map((product)=>(
-      <div style= { {width : '16%',height : '230px', border : '2px solid black'} }>
+      <div style= { {width : '25%',height : '270px', border : '2px solid black'} }>
         <img style={{height : '74%', width : '230px'}} src={product.image} alt=""/>
         <h1>{product.name}</h1>
       </div>

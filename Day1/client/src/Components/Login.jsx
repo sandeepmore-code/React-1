@@ -80,6 +80,8 @@ function Login() {
           setUserData({ email: "", password: "" });
           toast.success(response.data.message);
           router('/Home');
+        }else{
+          toast.error(response.data.message)
         }
       } catch (error) {
         toast.error(error.response.data.message);

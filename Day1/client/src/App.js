@@ -27,6 +27,8 @@ import Propfilter from './Components/Propfilter';
 import AddProduct from './Components/09-05/AddProduct';
 import Buyer from './Components/Project/Buyer';
 import Seller from './Components/Project/Seller';
+import YourProduct from './Components/Project/YourProduct';
+import AddCart from './Components/Cart';
 
 // import Wellcome from './Components/Day 2/wellcome';
 
@@ -102,6 +104,11 @@ function App() {
         <Route path='/register' element={<Register/>}/> 
         <Route path='/All-products' element={<AllProducts awdiz ={Product} />}/>
         <Route path='/add-product' element={<AddProduct/>}/>
+        <Route path='/your-product' element={<YourProduct
+        />}/>
+         <Route path='/add-cart' element={<AddCart
+        />}/>
+  
   
       </Routes>
     </div>

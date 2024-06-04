@@ -30,9 +30,9 @@ import { useContext, useEffect, useState } from "react";
 import "../styles/Home.css";
 import api from "../AxiosConfig";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./10-03/context/AuthContext.js";
-import { MycounterContext } from "./10-03/context/Countercontect.jsx";
+import { MycounterContext } from "./10-03/context/Countercontect";
 
 function Home() {
   const router = useNavigate();
@@ -66,7 +66,27 @@ function Home() {
 
     try {
       const response = await api.post("/api/v1/user/add-to-cart", {
-        userId: state?.user?._id,
+        userid: state?.user?._id,
+        productId: productId,
+      });
+      if (response.data.success) {
+        toast.success(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  async function AddToWishlist(productId) {
+    console.log(state, "state?.user?._id");
+    if (state?.user?._id === undefined) {
+      toast.error("Please login to add products into cart.");
+      router("/login");
+    }
+
+    try {
+      const response = await api.post("/api/v1/user/add-to-cart", {
+        userid: state?.user?._id,
         productId: productId,
       });
       if (response.data.success) {
@@ -83,6 +103,7 @@ function Home() {
     // <div style={{ background: theme === light ? "white" : 'black' }}>
     <div id="body">
       <div id="body-nav">
+      <Link to="/add-cart" style={{fontSize:"13px", }}>Go to Cart</Link>
         <div>
           <p>
             Home / Clothing / <b>Men T-Shirts</b>
@@ -205,7 +226,7 @@ function Home() {
                 justifyContent: "space-around",
               }}
             >
-              {allProducts.map((products) => (
+              {allProducts.map((productObj) => (
                 <div
                   style={{
                     width: "18%",
@@ -213,15 +234,15 @@ function Home() {
                     height: "250px",
                   }}
                 >
-                  <h1>Name : {products.name}</h1>
-                  <p>Category : {products.category}</p>
-                  <p>Price : {products.price}/-</p>
-                  <p>Total Quantities : {products.quantity}</p>
-                  <p>{products.tags}</p>
-                  <button onClick={() => AddToCart(products?._id)}>
+                  <h1>Name : {productObj.name}</h1>
+                  <p>Category : {productObj.category}</p>
+                  <p>Price : {productObj.price}/-</p>
+                  <p>Total Quantities : {productObj.quantity}</p>
+                  <p>{productObj.tags}</p>
+                  <button onClick={() => AddToCart(productObj?._id)}>
                     Add to Cart
                   </button>
-                  <button>Add to Wishlist</button>
+                  <button onClick={()=>AddToWishlist()}>Add to Wishlist</button>
                 </div>
               ))}
             </div>

@@ -4,10 +4,12 @@
 }
 
 #body-nav {
+
   height: 140px;
   border: 2px solid blue;
   padding: 30px;
 }
+
 
 #body-body {
   border: 2px solid red;
