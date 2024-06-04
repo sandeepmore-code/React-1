@@ -103,7 +103,9 @@ function Home() {
     // <div style={{ background: theme === light ? "white" : 'black' }}>
     <div id="body">
       <div id="body-nav">
-      <Link to="/add-cart" style={{fontSize:"13px", }}>Go to Cart</Link>
+      <div className="go-to-cart-container">
+      <Link to="/add-cart" className="go-to-cart ">Go to Cart</Link>
+      </div>
         <div>
           <p>
             Home / Clothing / <b>Men T-Shirts</b>

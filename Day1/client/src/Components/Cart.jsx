@@ -10,10 +10,11 @@ function AddCart() {
   const [CurrentProducts, setProducts] = useState([]);
 
   useEffect(() => {
+    console.log(CurrentProducts,"current products")
     async function fetchCartProducts() {
       if (state?.user?._id) {
         try {
-          const response = await api.get(`/api/v1/user/add-to-cart/${state.user._id}`);
+          const response = await api.get(`/api/v1/user/cart/${state.user._id}`);
           if (response.data.success) {
             setProducts(response.data.cart);
           } else {
@@ -33,7 +34,7 @@ function AddCart() {
 
   const handleCheckout = async () => {
     try {
-      const response = await api.post("/api/v1/user/checkout", { userId: state.user._id });
+      const response = await api.post("/api/v1/user/checkout", { userid: state.user._id });
       if (response.data.success) {
         toast.success(response.data.message);
         setProducts([]);

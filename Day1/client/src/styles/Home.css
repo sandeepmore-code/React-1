@@ -10,6 +10,32 @@
   padding: 30px;
 }
 
+.go-to-cart {
+  font-size: 13px; /* You can remove this if you want to keep the inline style */
+  color: blue; /* Change this to any color you like */
+  text-decoration: none; /* This will remove the underline */
+  padding: 10px 20px; /* Adjust padding as needed */
+  /* background-color: lightgray; */
+  border: 2px solid blue; /* Border for the link */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+
+  
+}
+
+.go-to-cart:hover {
+  background-color: darkgray; /* Change background color on hover */
+  color: white; /* Change text color on hover */
+}
+
+.go-to-cart-container{
+  position: absolute;
+  /* Adjust as needed */
+  left: 10px; /* Adjust as needed */
+}
+
+
+
 
 #body-body {
   border: 2px solid red;
