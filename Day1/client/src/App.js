@@ -30,8 +30,6 @@ import Seller from './Components/Project/Seller';
 import YourProduct from './Components/Project/YourProduct';
 import AddCart from './Components/Cart';
 
-// import Wellcome from './Components/Day 2/wellcome';
-
 function App() {
   const [ allProducts, setProducts] = useState([]);
   // console.log(allProducts,"allProducts")
