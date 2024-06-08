@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const api = axios.create({
-  baseURL: "https://backendnode-learning.vercel.app/" 
+  baseURL: "https://backend-node-n0ua.onrender.com" 
 //   process.env.ENV === "DEVLOPMENT"? "http://localhost:3001":
 // "https://awdiz-6.com"
 ,  withCredentials: true, 
