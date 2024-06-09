@@ -18,7 +18,7 @@ function Register() {
   const { state } = useContext(AuthContext);
 
   function HandleSelect(event) {
-    setUserData({ ...userData, ["role"]: event.target.value });
+    setUserData({ ...userData, "role": event.target.value });
     // console.log(event.target.value)
   }
 
