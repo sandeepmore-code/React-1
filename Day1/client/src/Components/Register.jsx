@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import api from "../AxiosConfig";
+import api from "../AxiosConfig/index.js";
 import { AuthContext } from "./10-03/context/AuthContext";
 
 function Register() {
