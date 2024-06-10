@@ -35,8 +35,8 @@ function Register() {
       userData.confirmpassword
     ) {
       try {
-        const response = await api.post("/api/v1/user/register", { userData });
-        // const response = {data:{success: true , message : "registration complited"}};
+        // const response = await api.post("/api/v1/user/register", { userData });
+        const response = {data:{success: true , message : "registration complited"}};
 
         if (response.data.success) {
           setUserData({
